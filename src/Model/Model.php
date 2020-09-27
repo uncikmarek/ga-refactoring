@@ -13,7 +13,7 @@ abstract class Model
 
     protected function addCommonParts($sql, $order = 'id', $direction = 'ASC', $limit = 10)
     {
-        if ("" !== $order) {
+        if ($order !== "") {
             $sql .= " ORDER BY $order $direction";
         }
 
