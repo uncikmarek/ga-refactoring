@@ -15,10 +15,10 @@ class ProductsController extends AbstractController
 
     protected function getData()
     {
-        $name =  $_GET['name'] ?? "";
-        $brand = $_GET['brand'] ?? "";
-        $order = $_GET['order'] ?? "id";
-        $limit = $_GET['limit'] ?? 10;
+        $name = (empty($_GET['name'])) ? '' : $_GET['name'];
+        $brand = (empty($_GET['brand'])) ? '' : $_GET['brand'];
+        $order = (empty($_GET['order'])) ? 'id' : $_GET['order'];
+        $limit = (empty($_GET['limit'])) ? 10 : $_GET['limit'];
 
         Log::info(sprintf('Rendering products action.'), $_GET);
 
