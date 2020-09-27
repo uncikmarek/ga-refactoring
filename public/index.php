@@ -3,6 +3,8 @@
 use App\Log;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use App\Controller\StatsController;
+use App\Controller\ProductController;
 
 require __DIR__ . '/../config/config.php';
 require __DIR__ . '/../vendor/autoload.php';
@@ -20,10 +22,10 @@ try {
     $type = $_GET['type'] ?? 'product';
     switch ($type) {
         case 'stats':
-            $controller = new \App\Controller\StatsController($twig);
+            $controller = new StatsController($twig);
             break;
         default:
-            $controller = new \App\Controller\ProductController($twig);
+            $controller = new ProductController($twig);
     }
 
     $controller->render();
