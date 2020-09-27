@@ -4,7 +4,7 @@ use App\Log;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use App\Controller\StatsController;
-use App\Controller\ProductController;
+use App\Controller\ProductsController;
 
 require __DIR__ . '/../config/config.php';
 require __DIR__ . '/../vendor/autoload.php';
@@ -25,7 +25,7 @@ try {
             $controller = new StatsController($twig);
             break;
         default:
-            $controller = new ProductController($twig);
+            $controller = new ProductsController($twig);
     }
 
     $controller->render();
