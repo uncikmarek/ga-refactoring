@@ -11,13 +11,13 @@ class Product extends Model
         JOIN brands b on p.brand_id = b.id
         SQL;
 
-        if ('' !== $name || '' !== $brandId) {
+        if ($name !== "" || $brandId !== "") {
             $where = [];
-            if ('' !== $name) {
+            if ($name !== "") {
                 $where[] = "p.name LIKE '%$name%'";
             }
 
-            if ('' !== $brandId) {
+            if ($brandId !== "") {
                 $where[] = "b.id = $brandId";
             }
 
