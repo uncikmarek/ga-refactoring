@@ -14,10 +14,12 @@ class StatsController extends AbstractController
     protected function getData()
     {
         $brandModel = new Brand();
+        $brands = $brandModel->getStats();
+        $title = 'Stats';
 
-        return [
-            'title' => 'Stats',
-            'brands' => $brandModel->getStats(),
-        ];
+        return compact(
+            'brands',
+            'title'
+        );
     }
 }
